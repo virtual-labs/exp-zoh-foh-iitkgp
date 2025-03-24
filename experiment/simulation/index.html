@@ -30,7 +30,7 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <!--<script  src="./js/TC.js">   </script>-->
-  <script  src="./js/ZOH_FOH.js"> </script>
+  <script  src="./js/ZOH_FOH_updated.js"> </script>
   <!-- <script src="./js/canvas2image.js"></script> -->
   
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -103,6 +103,17 @@
   
   
 </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DR65GC9DFB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DR65GC9DFB');
+</script>
+
 <body><!--body tag start-->
     <div class="container p-3 my-3 text-primary text-center border"><!--First Container under body tag start-->
         <div class="row"><!--First row under 1st container start-->
@@ -123,7 +134,7 @@
 
             </div><!--First col under 2nd row end-->
             <div class="col-md-6"><!--2nd col under 2nd row start-->
-                <p class="h1"> <b>Simulation</b> </p>
+                <p class="h1"> <b> Simulation</b> </p>
             </div><!--2nd col under 2nd row end-->
             <div class="col-md-3"><!--3rd col under 2nd row start-->
 
@@ -133,8 +144,7 @@
         
     </div><!--First Container under body tag end-->
     
-    	
-    <div class="container p-3 my-5 text-left border"><!--3rd Container under body tag start-->
+       <div class="container p-3 my-5 text-left border"><!--3rd Container under body tag start-->
       <div class="row"><!--First row under 3rd container start-->
         <div class="col-md-1"></div><!--First col under 3rd container start& end-->
         <div class="col-md-10"><!--2nd col under 3rd container start-->
@@ -143,13 +153,13 @@
                       <li>At first enter the desired values of minimum frequency, maximum frequency and sampling time. Here default values are 1 for minimum frequency,
 					      100 for maximum frequency and 0.1 for sampling frequency.</li></br>
   
-					  <li>Click on 'Zero Order Hold' dropdown-menu and click on the desired option to start simulation.
-					      Click on 'OK' button beside the 'Download' button. Plot can be downloaded by clicking on 'Download' button.</li><br/>
+					  <li>Click on 'Select method for linear scale' or 'Select method for semilog scale' dropdown-menu and select the desired option.</li><br/>
+					  
+					  <li>Click on 'Plot' button for simulation. </li><br/>
+					  
+					  <li>Click on the 'Download Plot' button to download the simulation results.</li><br/>		 
 					 
-					 <li>Click on 'First Order Hold' dropdown-menu and click on the desired option to start simulation.
-					      Click on 'OK' button beside the 'Download' button. Plot can be downloaded by clicking on 'Download' button.</li><br/>
-
-					 <li>Click on 'Clear' button before the every simulation to clear the previous plot.</li><br/> 
+					  <li>Click on 'Clear' button before the every simulation to clear the previous plot.</li><br/> 
 
 					
 						 
@@ -173,7 +183,7 @@
 			Enter the desired minimum frequency of the plot :&nbsp;<input type="number" id="minf" min="1" value="1" max="10" step="1" style="position:absolute;width:20%" ><br/></br>
 			Enter the desired maximum frequency of the plot: &nbsp;<input type="number" id="maxf" min="10" value="100" max="1000" step="10" style="position:absolute;width:20%"><br/><br/>			
 			<!--Enter the desired sampling time :    <input type="number" id="Ts" min="0.01" value="0.1" max="10" step="0.01" style="position:absolute;width:20%"readonly=readonly><br/></br>-->
-			Enter the desired sampling time :    &nbsp;<input type="number" onchange="inputChange()" id="Ts" min="0.01" value="0.1" max="0.5" step="0.01" style="position:absolute;width:20%"><br/></br>				
+			Enter the desired sampling time (T sec) :    &nbsp;<input type="number" onchange="inputChange()" id="Ts" min="0.01" value="0.1" max="0.5" step="0.01" style="position:absolute;width:20%"><br/></br>				
 			</div>
 			<br/>
 			
@@ -188,30 +198,39 @@
 				
 	 <div class="d-inline-flex p-3 gy-2">			
 		<div class="dropdown">
-  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Zero Order Hold
+  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownfreq" data-bs-toggle="dropdown" aria-expanded="false">
+    Select method for linear scale
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" id ="run" onclick="ZOH_fr()">ZOH Freq. Resp.</a></li>
-    <li><a class="dropdown-item" id ="run" onclick="ZOH_bode()">ZOH Bode</a></li>
-    <li><a class="dropdown-item" id ="run" onclick="ZOH_pade1_fr()">ZOH PADE 1 Freq. Resp.</a></li>
-	<li><a class="dropdown-item" id ="run" onclick="ZOH_pade1_bode()">ZOH PADE 1 Bode</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdownfreq">
+    <li><a class="dropdown-item"  onclick="zohfrs()">ZOH Freq. Resp.</a></li>
+	<li><a class="dropdown-item"  onclick="fohfrs()">FOH Freq. Resp.</a></li>
+	<li><a class="dropdown-item"  onclick="zohfrps()">ZOH PADE 1 Freq. Resp.</a></li>
+	<li><a class="dropdown-item"  onclick="fohfrps()">FOH PADE 1 Freq. Resp.</a></li>
+	
   </ul>
+  
 </div>&nbsp;&nbsp;		
 		
 		<div class="dropdown">
-  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    First Order Hold
+  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownbode" data-bs-toggle="dropdown" aria-expanded="false">
+    Select method for semilog scale
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" id ="run" onclick="FOH_fr()">FOH Freq. Resp.</a></li>
-    <li><a class="dropdown-item" id ="run" onclick="FOH_bode()">FOH Bode</a></li>
-    <li><a class="dropdown-item" id ="run" onclick="FOH_pade1_fr()">FOH PADE 1 Freq. Resp.</a></li>
-	<li><a class="dropdown-item" id ="run" onclick="FOH_pade1_bode()">FOH PADE 1 Bode</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdownbode">
+     <li><a class="dropdown-item"  onclick="zohbs()">ZOH Bode</a></li>
+    <li><a class="dropdown-item"  onclick="fohbs()">FOH Bode</a></li>
+    <li><a class="dropdown-item"  onclick="zohbps()">ZOH PADE 1 Bode</a></li>
+	<li><a class="dropdown-item"  onclick="fohbps()">FOH PADE 1 Bode</a></li>
+	
   </ul>
+  
 </div>&nbsp;&nbsp;
 
+<button class="btn btn-success" id ="plotfreq" onclick="GenPlot()" style="display:none">Plot</button>
+<button class="btn btn-success" id ="plotbode" onclick="GenPlotBode()" style="display:none">Plot</button>
+
 		<button class="btn btn-danger" id ="clr" onclick="refresh()" >Clear</button>
+		<input id="methodchkfreq" value="0" style="visibility:hidden">
+		<input id="methodchkbode" value="0" style="visibility:hidden">
 	</div>
 	</div>
 	
@@ -249,7 +268,7 @@
 				<!--<button type="button" id="exportChart2" class="btn btn-primary"  style="display:none;position:absolute;top:210%;left:28%;">Download Plot</button>-->
 				
 					<div id="chartContainer1"  style="display:none; position:absolute; height:50%; width:100%;z-index:1 "></div>
-					<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+					<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 					<div id="chartContainer2"  style="display:none; position:absolute; height:50%; width:100%;z-index:1 "></div>
 				
 				</div>
