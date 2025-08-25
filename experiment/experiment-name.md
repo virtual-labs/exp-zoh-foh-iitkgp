@@ -1,1 +1,1 @@
-## Determine frequency response of zero order hold and first order hold using actual transfer functions and Pade approximations  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="images/iitkgp.png" width="3%" />
+## Determine Frequency Response of Zero Order Hold and First Order Hold using Actual Transfer Functions and Pade Approximations  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="images/iitkgp.png" width="3%" />
