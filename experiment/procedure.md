@@ -9,7 +9,7 @@
 <div align="center">
 <img class="img-fluid"  src="./images/DV.png" alt="">
 
-<figcaption style="color:black"> Fig.1. Maximum, Minimum Frequency and Sampling time values entry </figcaption>						  
+<b> Fig.1. Maximum, Minimum Frequency and Sampling time values entry </b>						  
 </div>
 
 2. Click on 'Select method for linear scale' dropdown-menu and select the desired option.
@@ -17,7 +17,7 @@
 <div align="center">
 <img class="img-fluid"  src="./images/Linear_Scale.png" alt="">
 
-<figcaption style="color:black"> Fig.2. Selecting method for linear scale simulation </figcaption>							  
+<b> Fig.2. Selecting method for linear scale simulation </b>							  
 </div>
 
 
@@ -26,7 +26,7 @@
 <div align="center">
 <img class="img-fluid"  src="./images/Semilog_Scale.png" alt="">
 
-<figcaption style="color:black"> Fig.3. Selecting method for semilog simulation </figcaption>	
+<b> Fig.3. Selecting method for semilog simulation </b>	
 </div>
 
 4. Click on 'Plot' button for simulation.

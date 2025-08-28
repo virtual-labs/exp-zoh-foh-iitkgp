@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html lang="en"><!--html tag start-->
 <head>
-    <title>Determine frequency response of zero order hold and first order hold using actual transfer functions and Pade approximations</title>
+    <title>Determine Frequency Response of Zero Order Hold and First Order Hold using Actual Transfer Functions and Pade Approximations</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,15 +104,6 @@
   
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DR65GC9DFB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DR65GC9DFB');
-</script>
 
 <body><!--body tag start-->
     <div class="container p-3 my-3 text-primary text-center border"><!--First Container under body tag start-->
@@ -134,17 +125,18 @@
 
             </div><!--First col under 2nd row end-->
             <div class="col-md-6"><!--2nd col under 2nd row start-->
-                <p class="h1"> <b> Simulation</b> </p>
+                <p class="h1"> <b>Simulation</b> </p>
             </div><!--2nd col under 2nd row end-->
             <div class="col-md-3"><!--3rd col under 2nd row start-->
 
             </div><!--3rd col under 2nd row end-->
         </div><!--2nd row under 1st container end-->
         <hr>
-        
+       
     </div><!--First Container under body tag end-->
     
-       <div class="container p-3 my-5 text-left border"><!--3rd Container under body tag start-->
+	
+    <div class="container p-3 my-5 text-left border"><!--3rd Container under body tag start-->
       <div class="row"><!--First row under 3rd container start-->
         <div class="col-md-1"></div><!--First col under 3rd container start& end-->
         <div class="col-md-10"><!--2nd col under 3rd container start-->
@@ -178,12 +170,12 @@
 	<div class="col-md-12">
 	
 	
-			<div   class="img-container">			
+			<div>			
 			
-			Enter the desired minimum frequency of the plot :&nbsp;<input type="number" id="minf" min="1" value="1" max="10" step="1" style="position:absolute;width:20%" ><br/></br>
-			Enter the desired maximum frequency of the plot: &nbsp;<input type="number" id="maxf" min="10" value="100" max="1000" step="10" style="position:absolute;width:20%"><br/><br/>			
+			<span style="position:absolute;left:30%">Enter the desired minimum frequency of the plot:</span>&nbsp;<input type="number" id="minf" min="1" value="1" max="10" step="1" style="position:absolute;width:6%;text-align:center" ><br/></br>
+			<span style="position:absolute;left:30%">Enter the desired maximum frequency of the plot:</span> &nbsp;<input type="number" id="maxf" min="10" value="100" max="1000" step="10" style="position:absolute;width:6%;text-align:center"><br/><br/>			
 			<!--Enter the desired sampling time :    <input type="number" id="Ts" min="0.01" value="0.1" max="10" step="0.01" style="position:absolute;width:20%"readonly=readonly><br/></br>-->
-			Enter the desired sampling time (T sec) :    &nbsp;<input type="number" onchange="inputChange()" id="Ts" min="0.01" value="0.1" max="0.5" step="0.01" style="position:absolute;width:20%"><br/></br>				
+			<span style="position:absolute;left:30%">Enter the desired sampling time (T sec):</span>    &nbsp;<input type="number" onchange="inputChange()" id="Ts" min="0.01" value="0.1" max="0.5" step="0.01" style="position:absolute;width:6%;text-align:center"><br/></br>				
 			</div>
 			<br/>
 			
