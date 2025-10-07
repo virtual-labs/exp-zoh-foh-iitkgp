@@ -104,7 +104,6 @@
   
 </head>
 
-
 <body><!--body tag start-->
     <div class="container p-3 my-3 text-primary text-center border"><!--First Container under body tag start-->
         <div class="row"><!--First row under 1st container start-->
@@ -132,7 +131,7 @@
             </div><!--3rd col under 2nd row end-->
         </div><!--2nd row under 1st container end-->
         <hr>
-       
+        
     </div><!--First Container under body tag end-->
     
 	
@@ -148,10 +147,12 @@
 					  <li>Click on 'Select method for linear scale' or 'Select method for semilog scale' dropdown-menu and select the desired option.</li><br/>
 					  
 					  <li>Click on 'Plot' button for simulation. </li><br/>
-					  
+					  					  				  
 					  <li>Click on the 'Download Plot' button to download the simulation results.</li><br/>		 
 					 
 					  <li>Click on 'Clear' button before the every simulation to clear the previous plot.</li><br/> 
+					  
+					  <li>To compare plots, select the desired options from the dropdown-menu without using the 'Clear' button.</li><br/>
 
 					
 						 
@@ -172,8 +173,8 @@
 	
 			<div>			
 			
-			<span style="position:absolute;left:30%">Enter the desired minimum frequency of the plot:</span>&nbsp;<input type="number" id="minf" min="1" value="1" max="10" step="1" style="position:absolute;width:6%;text-align:center" ><br/></br>
-			<span style="position:absolute;left:30%">Enter the desired maximum frequency of the plot:</span> &nbsp;<input type="number" id="maxf" min="10" value="100" max="1000" step="10" style="position:absolute;width:6%;text-align:center"><br/><br/>			
+			<span style="position:absolute;left:25%">Enter the desired minimum frequency of the plot:</span>&nbsp;<input type="number" id="minf" min="1" value="1" max="10" step="1" style="position:absolute;width:6%;text-align:center" ><br/></br>
+			<span style="position:absolute;left:25%">Enter the desired maximum frequency of the plot:</span> &nbsp;<input type="number" id="maxf" min="10" value="100" max="1000" step="10" style="position:absolute;width:6%;text-align:center"><br/><br/>			
 			<!--Enter the desired sampling time :    <input type="number" id="Ts" min="0.01" value="0.1" max="10" step="0.01" style="position:absolute;width:20%"readonly=readonly><br/></br>-->
 			<span style="position:absolute;left:30%">Enter the desired sampling time (T sec):</span>    &nbsp;<input type="number" onchange="inputChange()" id="Ts" min="0.01" value="0.1" max="0.5" step="0.01" style="position:absolute;width:6%;text-align:center"><br/></br>				
 			</div>
