@@ -394,8 +394,8 @@ function ZOH_pade1_fr(){
 	var w = math.multiply(2,math.pi,f/2);
 	
 	var lstprt1=math.complex(0,w);
-	var scndprtn1 = math.complex(20,-w);
-	var scndprtd1 = math.complex(20,w);
+	var scndprtn1 = math.complex(2,-math.multiply(Ts,w));
+	var scndprtd1 = math.complex(2,math.multiply(Ts,w));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt1 = math.subtract(1,math.divide(scndprtn1,scndprtd1));
@@ -411,8 +411,8 @@ function ZOH_pade1_fr(){
 	var w1 = math.multiply(2,math.pi,f);
 	
 	var lstprt=math.complex(0,w1);
-	var scndprtn = math.complex(20,-w1);
-	var scndprtd = math.complex(20,w1);
+	var scndprtn = math.complex(2,-math.multiply(Ts,w1));
+	var scndprtd = math.complex(2,math.multiply(Ts,w1));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt = math.subtract(1,math.divide(scndprtn,scndprtd));
@@ -545,8 +545,8 @@ function ZOH_pade1_bode(){
 	var w = math.multiply(2,math.pi,f/2);
 	
 	var lstprt1=math.complex(0,w);
-	var scndprtn1 = math.complex(20,-w);
-	var scndprtd1 = math.complex(20,w);
+	var scndprtn1 = math.complex(2,-math.multiply(Ts,w));
+	var scndprtd1 = math.complex(2,math.multiply(Ts,w));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt1 = math.subtract(1,math.divide(scndprtn1,scndprtd1));
@@ -562,8 +562,8 @@ function ZOH_pade1_bode(){
 	var w1 = math.multiply(2,math.pi,f);
 	
 	var lstprt=math.complex(0,w1);
-	var scndprtn = math.complex(20,-w1);
-	var scndprtd = math.complex(20,w1);
+	var scndprtn = math.complex(2,-math.multiply(Ts,w1));
+	var scndprtd = math.complex(2,math.multiply(Ts,w1));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt = math.subtract(1,math.divide(scndprtn,scndprtd));
@@ -1050,8 +1050,8 @@ function FOH_pade1_fr(){
 	var w = math.multiply(2,math.pi,f);
 	
 	var lstprt1=math.complex(0,w);
-	var scndprtn1 = math.complex(20,-w);
-	var scndprtd1 = math.complex(20,w);
+	var scndprtn1 = math.complex(2,-math.multiply(Ts,w));
+	var scndprtd1 = math.complex(2,math.multiply(Ts,w));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt1 = math.subtract(1,math.divide(scndprtn1,scndprtd1));
@@ -1069,8 +1069,8 @@ function FOH_pade1_fr(){
 	var w1 = math.multiply(2,math.pi,f);
 	
 	var lstprt=math.complex(0,w1);
-	var scndprtn = math.complex(20,-w1);
-	var scndprtd = math.complex(20,w1);
+	var scndprtn = math.complex(2,-math.multiply(Ts,w1));
+	var scndprtd = math.complex(2,math.multiply(Ts,w1));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt = math.subtract(1,math.divide(scndprtn,scndprtd));
@@ -1212,8 +1212,8 @@ function FOH_pade1_bode(){
 	var w = math.multiply(2,math.pi,f);
 	
 	var lstprt1=math.complex(0,w);
-	var scndprtn1 = math.complex(20,-w);
-	var scndprtd1 = math.complex(20,w);
+	var scndprtn1 = math.complex(2,-math.multiply(Ts,w));
+	var scndprtd1 = math.complex(2,math.multiply(Ts,w));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt1 = math.subtract(1,math.divide(scndprtn1,scndprtd1));
@@ -1231,8 +1231,8 @@ function FOH_pade1_bode(){
 	var w1 = math.multiply(2,math.pi,f);
 	
 	var lstprt=math.complex(0,w1);
-	var scndprtn = math.complex(20,-w1);
-	var scndprtd = math.complex(20,w1);
+	var scndprtn = math.complex(2,-math.multiply(Ts,w1));
+	var scndprtd = math.complex(2,math.multiply(Ts,w1));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt = math.subtract(1,math.divide(scndprtn,scndprtd));

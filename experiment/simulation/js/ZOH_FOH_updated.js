@@ -264,7 +264,7 @@ function ZOH_bode(){
 	yop[f] = 20*Math.log10(Math.abs(yy));
 	
 	///yop[f] = 20*Math.log10(Math.abs(y));
-	dataOPPoints.push({x:(f), y:(yop[f])});///magnitude part
+	dataOPPoints.push({x:(w), y:(yop[f])});///magnitude part
 	Arraymbfr["array"+incrmbfr]=dataOPPoints;
     Arraymbfr.push("array"+incrmbfr);
 	
@@ -283,7 +283,7 @@ function ZOH_bode(){
 	//phase[f] = math.atan2(imagy,y);
 	phase[f]=(180/Math.PI)*math.atan2(imagy,y);
 	
-	dataOPPoints1.push({x:(f), y:(phase[f])});//phase part
+	dataOPPoints1.push({x:(w), y:(phase[f])});//phase part
 	Arrayphbfr["array"+incrphbfr]=dataOPPoints1;
     Arrayphbfr.push("array"+incrphbfr);
 	
@@ -323,11 +323,11 @@ function ZOH_pade1_fr(){
 	
 	for(var f=minf;f<=maxf;f++){
 	f1=f;
-	var w = math.multiply(2,math.pi,f/2);
+	var w = math.multiply(2,math.pi,f);
 	
 	var lstprt1=math.complex(0,w);
-	var scndprtn1 = math.complex(20,-w);
-	var scndprtd1 = math.complex(20,w);
+	var scndprtn1 = math.complex(2,-math.multiply(Ts,w)); // math.complex(math.multiply(2,math.subtract(1,math.multiply(0.0833,w,w,Ts))),-math.multiply(Ts,w));
+	var scndprtd1 = math.complex(2,math.multiply(Ts,w)); // math.complex(math.multiply(2,math.subtract(1,math.multiply(0.0833,w,w,Ts))),math.multiply(Ts,w));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt1 = math.subtract(1,math.divide(scndprtn1,scndprtd1));
@@ -344,8 +344,8 @@ function ZOH_pade1_fr(){
 	var w1 = math.multiply(2,math.pi,f);
 	
 	var lstprt=math.complex(0,w1);
-	var scndprtn = math.complex(20,-w1);
-	var scndprtd = math.complex(20,w1);
+	var scndprtn = math.complex(2,-math.multiply(Ts,w1)); //math.complex(math.multiply(2,math.subtract(1,math.multiply(0.0833,w1,w1,Ts))),-math.multiply(Ts,w1)); 
+	var scndprtd = math.complex(2,math.multiply(Ts,w1)); //math.complex(math.multiply(2,math.subtract(1,math.multiply(0.0833,w1,w1,Ts))),math.multiply(Ts,w1));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt = math.subtract(1,math.divide(scndprtn,scndprtd));
@@ -404,7 +404,7 @@ document.getElementById('chartContainer1').style.display  = "block";
 	  
 	  axisX:{
         interlacedColor: "#FADA9E",
-        //title: "Frequency(Hz)"
+        //title: "Frequency(rad/s)"
       },
     axisY: [
 	      {/////output Y axis
@@ -575,11 +575,11 @@ function ZOH_pade1_bode(){
 	
 	for(var f=minf;f<=maxf;f++){
 	f1=f;
-	var w = math.multiply(2,math.pi,f/2);
+	var w = math.multiply(2,math.pi,f);
 	
 	var lstprt1=math.complex(0,w);
-	var scndprtn1 = math.complex(20,-w);
-	var scndprtd1 = math.complex(20,w);
+	var scndprtn1 = math.complex(2,-math.multiply(Ts,w));
+	var scndprtd1 = math.complex(2,math.multiply(Ts,w));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt1 = math.subtract(1,math.divide(scndprtn1,scndprtd1));
@@ -588,7 +588,7 @@ function ZOH_pade1_bode(){
 	
 	
 	yop[f] = 20*Math.log10(Math.abs(y));
-	dataOPPoints.push({x:(f), y:(yop[f])});///magnitude part
+	dataOPPoints.push({x:(w), y:(yop[f])});///magnitude part
 	Arraymbfr["array"+incrmbfr]=dataOPPoints;
     Arraymbfr.push("array"+incrmbfr);
 	
@@ -596,8 +596,8 @@ function ZOH_pade1_bode(){
 	var w1 = math.multiply(2,math.pi,f);
 	
 	var lstprt=math.complex(0,w1);
-	var scndprtn = math.complex(20,-w1);
-	var scndprtd = math.complex(20,w1);
+	var scndprtn = math.complex(2,-math.multiply(Ts,w1));
+	var scndprtd = math.complex(2,math.multiply(Ts,w1));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt = math.subtract(1,math.divide(scndprtn,scndprtd));
@@ -611,7 +611,7 @@ function ZOH_pade1_bode(){
 	//phase[f] = math.atan2(imagy,y);
 	phase[f]=(180/Math.PI)*math.atan2(imagy,y1);
 	
-	dataOPPoints1.push({x:(f), y:(phase[f])});//phase part
+	dataOPPoints1.push({x:(w), y:(phase[f])});//phase part
 	Arrayphbfr["array"+incrphbfr]=dataOPPoints1;
     Arrayphbfr.push("array"+incrphbfr);
 	
@@ -760,7 +760,7 @@ function FOH_bode(){
 	
 	
 	//yop[f] = Math.abs(y);
-	dataOPPoints.push({x:(f), y:(yop[f])});///magnitude part
+	dataOPPoints.push({x:(w), y:(yop[f])});///magnitude part
 	Arraymbfr["array"+incrmbfr]=dataOPPoints;
     Arraymbfr.push("array"+incrmbfr);
 	
@@ -783,7 +783,7 @@ function FOH_bode(){
 	//phase[f] = math.atan2(imagy,y);
 	phase[f]=(180/Math.PI)*math.atan2(imagy,y);
 	
-	dataOPPoints1.push({x:(f), y:(phase[f])});//phase part
+	dataOPPoints1.push({x:(w), y:(phase[f])});//phase part
 	Arrayphbfr["array"+incrphbfr]=dataOPPoints1;
     Arrayphbfr.push("array"+incrphbfr);
 	
@@ -825,8 +825,8 @@ function FOH_pade1_fr(){
 	var w = math.multiply(2,math.pi,f);
 	
 	var lstprt1=math.complex(0,w);
-	var scndprtn1 = math.complex(20,-w);
-	var scndprtd1 = math.complex(20,w);
+	var scndprtn1 = math.complex(2,-math.multiply(Ts,w));
+	var scndprtd1 = math.complex(2,math.multiply(Ts,w));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt1 = math.subtract(1,math.divide(scndprtn1,scndprtd1));
@@ -845,8 +845,8 @@ function FOH_pade1_fr(){
 	var w1 = math.multiply(2,math.pi,f);
 	
 	var lstprt=math.complex(0,w1);
-	var scndprtn = math.complex(20,-w1);
-	var scndprtd = math.complex(20,w1);
+	var scndprtn = math.complex(2,-math.multiply(Ts,w1));
+	var scndprtd = math.complex(2,math.multiply(Ts,w1));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt = math.subtract(1,math.divide(scndprtn,scndprtd));
@@ -909,8 +909,8 @@ function FOH_pade1_bode(){
 	var w = math.multiply(2,math.pi,f);
 	
 	var lstprt1=math.complex(0,w);
-	var scndprtn1 = math.complex(20,-w);
-	var scndprtd1 = math.complex(20,w);
+	var scndprtn1 = math.complex(2,-math.multiply(Ts,w));
+	var scndprtd1 = math.complex(2,math.multiply(Ts,w));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt1 = math.subtract(1,math.divide(scndprtn1,scndprtd1));
@@ -921,7 +921,7 @@ function FOH_pade1_bode(){
 	
 	
 	yop[f] = 20*Math.log10(Math.abs(y));
-	dataOPPoints.push({x:(f), y:(yop[f])});///magnitude part
+	dataOPPoints.push({x:(w), y:(yop[f])});///magnitude part
 	Arraymbfr["array"+incrmbfr]=dataOPPoints;
     Arraymbfr.push("array"+incrmbfr);
 	
@@ -929,8 +929,8 @@ function FOH_pade1_bode(){
 	var w1 = math.multiply(2,math.pi,f);
 	
 	var lstprt=math.complex(0,w1);
-	var scndprtn = math.complex(20,-w1);
-	var scndprtd = math.complex(20,w1);
+	var scndprtn = math.complex(2,-math.multiply(Ts,w1));
+	var scndprtd = math.complex(2,math.multiply(Ts,w1));
 	
 	//var eprt1 = math.pow(math.e,math.complex(0,math.multiply(-w,Ts)));
 	var frstprt = math.subtract(1,math.divide(scndprtn,scndprtd));
@@ -951,7 +951,7 @@ function FOH_pade1_bode(){
 	//phase[f] = math.atan2(imagy,y);
 	phase[f]=(180/Math.PI)*math.atan2(imagy,y1);
 	
-	dataOPPoints1.push({x:(f), y:(phase[f])});//phase part
+	dataOPPoints1.push({x:(w), y:(phase[f])});//phase part
 	Arrayphbfr["array"+incrphbfr]=dataOPPoints1;
     Arrayphbfr.push("array"+incrphbfr);
 	
@@ -996,11 +996,13 @@ document.getElementById('chartContainer1').style.display  = "block";
 	  
 	  axisX:{
         interlacedColor: "#FADA9E",
-        //title: "Frequency(Hz)"
+		logarithmic:true,
+		
+        //title: "Frequency(rad/s)"
       },
     axisY: [
 	      {/////output Y axis
-            title: "Magnitude(T)",
+            title: "Magnitude(T) in dB",
 			
 			//maximum:0.03,
         }
@@ -1032,7 +1034,9 @@ document.getElementById('chartContainer1').style.display  = "block";
 	  
 	  axisX:{
         interlacedColor: "#FADA9E",
-        title: "Frequency(Hz)"
+        title: "Frequency(rad/s)",
+		logarithmic:true,
+		
       },
     axisY: [
 	      {/////output Y axis

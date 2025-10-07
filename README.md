@@ -11,44 +11,27 @@
 
 ### About the Experiment 
 
- **The Hold Operation**
+In digital signal processing and control systems, converting discrete-time signals back into continuous-time signals is a critical step known as signal reconstruction.
+Accurate reconstruction ensures that the continuous-time signal closely approximates the original analog signal. This process typically employs hold circuits, which either maintain or interpolate sampled data before conversion to analog form. <br/>
+<br/>
+Two common methods for reconstructing signals from samples are the Zero-Order Hold (ZOH) and First-Order Hold (FOH) techniques. 
+The ZOH method reconstructs the signal by holding each sample value constant until the next sample arrives, resulting in a piecewise-constant waveform. 
+Although simple and widely used, this approach can introduce signal distortion and delay. 
+The FOH method improves reconstruction by linearly interpolating between samples, producing a smoother, piecewise-linear output that better approximates the original continuous-time signal. <br/>
+<br/>
+Figure 1 illustrates the discontinuous, piecewise-constant nature of the Zero-Order Hold (ZOH) output contrasted with the continuous, linearly interpolated response of the First-Order Hold (FOH), highlighting their respective influences on signal reconstruction fidelity and smoothness. <br/> <br/>
 
-In the computer-controlled systems, it is necessary to convert the control actions calculated by the computer as a sequence of numbers, to a continuous-time signal that can be applied to the process.<br/><br>
+<div align="center">
+<img class="img-fluid"  src= "experiment/images/ZOH_FOH_fig.png" alt=""><br>
+<b> Fig.1. Operation of ZOH and FOH </b><br/>
+</div><br>
 
-The problem of hold operation may be posed as follows:<br>
-Given a sequence 
-
-$$ {y(0), y(1),..., y(k),...} $$ 
-
-We have to construct
-
-$$ y_a(t), t \ge 0 $$	
-
-A commonly used solution to the problem of hold operation is polynomial extrapolation. Using Taylor’s series expansion about <img src="./images/t_kT.png">, we can express 
-
-$$ y_a(t) = y_a(kT) + \dot y_a (kT)(t-kT)+ \frac {\ddot y_a(kT)}{2!} (t-kT)^2 +...; kT \le t \lt (k+1)T \tag{1} $$
-
-where,
-
-$$ \dot y_a (kT) \cong \frac{1}{T} [y_a(kT)-y_a((k-1)T)] $$ 
-$$ \ddot y_a(kT) \cong \frac{1}{T^2} [y_a(kT)-2y_a((k-1)T)+y_a((k-2)T)] $$
-
-
-If only the first term in expansion (1) is used, the data hold is called a Zero-Order Hold (ZOH). 
-Here we assume that the function  <span style="font-family:Sitka Text; font-style:italic;">y<sub>a</sub></span>(<span style="font-family:Bodoni MT; font-style:italic;font-size:18px">t</span>) is approximately constant within the sampling interval, at a value equal to that of the function at the preceding sampling instant. 
-Therefore, for a given input sequence {<span style="font-family:Sitka Text; font-style:italic;">y</span>(<span style="font-family:Bodoni MT; font-style:italic;font-size:18px">k</span>)}, the output of ZOH is given by <br>
-$$ y_a(t) = y(k) ; kT \le t \lt (k+1)T \tag{2} $$
-
-The first two terms in expansion (1) are used to realize the first-order hold. For a given input sequence {<span style="font-family:Sitka Text; font-style:italic;">y</span>(<span style="font-family:Bodoni MT; font-style:italic;font-size:18px">k</span>)}, the output of the first-order hold is given by<br>
-
-$$ y_a(t) = y(k) + \frac {t-kT}{T} [y(k) - y(k-1)] \tag{3} $$
-
-It is obvious from expansion (1) that the higher the order of the derivative to be approximated, the larger will be the number of delay pulses required. The time-delay adversely affects the stability of feedback control systems. 
-Furthermore, a high-order extrapolation requires complex circuitry and results in high costs of construction. The ZOH is the simplest, and most commonly used, data hold device. 
-The standard D/A converters are often designed in such a way that the old value is held constant until a new conversion is ordered.
-
-					
-
+This experiment further utilizes Pade approximations as an analytical tool to approximate the transfer functions of ZOH and FOH. 
+These approximations provide simplified rational expressions that facilitate frequency domain analysis and insight into the dynamic characteristics of hold circuits. <br/>
+<br/>
+Determining the frequency response of these hold devices is fundamental for assessing their influence on system performance. 
+This experiment involves comparing frequency responses of ZOH and FOH with those obtained through Pade approximations. 
+The objective is to enhance understanding of hold device behavior and evaluate the effectiveness of Pade approximations in modeling sampled-data systems for control design.
 
 	
 
