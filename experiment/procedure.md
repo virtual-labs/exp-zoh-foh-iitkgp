@@ -33,6 +33,8 @@
 
 <li>To compare plots, select the desired options from the dropdown-menu without using the 'Clear' button.</li><br/>
 
+<li> Place the cursor on the plot to read the exact values at any point for detailed analysis. </li><br/>
+
 </ol>
 
 
