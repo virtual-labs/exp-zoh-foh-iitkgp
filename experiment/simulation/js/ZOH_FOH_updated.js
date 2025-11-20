@@ -408,7 +408,7 @@ document.getElementById('chartContainer1').style.display  = "block";
       },
     axisY: [
 	      {/////output Y axis
-            title: "Magnitude(T)",
+            title: "Magnitude",
 			
 			//maximum:0.03,
         }
@@ -419,8 +419,8 @@ document.getElementById('chartContainer1').style.display  = "block";
       {        
         type: "spline",
 		//color:"black",
-		showInLegend: true,
-		legendText: legendP + " " + "magnitude (T = " + "" +sampleP +")",
+		//showInLegend: true,
+		//legendText: legendP + " " + "magnitude (T = " + "" +sampleP +")",
         dataPoints:null
 	
        }
@@ -456,7 +456,7 @@ document.getElementById('chartContainer1').style.display  = "block";
         type: "spline",
 		//color:"black",
 		showInLegend: true,
-		legendText: legendP + " " + "phase (T = " + "" +sampleP +")",
+		legendText: legendP + " " + "(T = " + "" +sampleP +")",
         dataPoints:null
 	
        }
@@ -486,35 +486,36 @@ document.getElementById('chartContainer1').style.display  = "block";
 	 CanvasJS.addColorSet("MagShades",
                 [//colorSet Array for magnitudes
 
-                "#6d0404",
-                "#f93838",
+                "#FC222D",
+                "#FC8422",
+                "#282BF6",
+                "#1E7640",
+                "black",
+				"#8C28F6",
+                /* "#f93838",
                 "#3875f9",
                 "#022676",
-                "#380276",
-				"#2F4F4F",
-                "#008080",
-                "#2E8B57",
-                "#3CB371",
-                "#90EE90"                
+                "#380276", */             
                 ]);
 				CanvasJS.addColorSet("PhaseShades",
                 [//colorSet Array for phases
 
-                "#2F4F4F",
-                "#008080",
-                "#2E8B57",
-                "#3CB371",
-                "#90EE90",
-				"#6d0404",
-                "#f93838",
+                "#FC222D",
+                "#FC8422",
+                "#282BF6",
+                "#1E7640",
+                "black",
+				"#8C28F6",
+                /* "#f93838",
                 "#3875f9",
                 "#022676",
-                "#380276",				
+                "#380276", */			
                 ]);
 
 	 
 	 for (var dnum = 0; dnum<=incrfr1; dnum++){
-		  
+	
+if(dnum<=3){	
 	 datasetm[dnum] = Arraymfr["array"+dnum];
 	 datasetph[dnum] = Arrayphfr["array"+dnum];
 	 
@@ -530,8 +531,8 @@ document.getElementById('chartContainer1').style.display  = "block";
 	chart2.addTo("colorSet","PhaseShades");
 	chart2.addTo("axisY", {gridThickness: 0, tickLength:0, lineThickness:0});
 	
-	chart1.addTo("data", {type: "spline", showInLegend:true, legendText: legendP + " " + "magnitude (T = " + "" +sampleP +")"});
-	chart2.addTo("data", {type: "spline", showInLegend:true, legendText: legendP + " " + "phase (T = " + "" +sampleP +")"});
+	chart1.addTo("data", {type: "spline"});//, showInLegend:true, legendText: legendP + " " + "magnitude (T = " + "" +sampleP +")"
+	chart2.addTo("data", {type: "spline", showInLegend:true, legendText: legendP + " " + "(T = " + "" +sampleP +")"});
 	
 	}
 	
@@ -544,11 +545,20 @@ document.getElementById('chartContainer1').style.display  = "block";
 	
 	
 	document.getElementById("exportChart").style.display = "block";
-	
+}
+
+if(dnum>3){
+	alert('Maximum four simulations can be performed.');
+}
+
+
 	 }
+	 
+	 
+	 
 	incrfr1++; 
 	incrfr2++;
-	 
+	  
  }
 
 
@@ -1002,7 +1012,7 @@ document.getElementById('chartContainer1').style.display  = "block";
       },
     axisY: [
 	      {/////output Y axis
-            title: "Magnitude(T) in dB",
+            title: "Magnitude in dB",
 			
 			//maximum:0.03,
         }
@@ -1013,8 +1023,8 @@ document.getElementById('chartContainer1').style.display  = "block";
       {        
         type: "spline",
 		//color:"black",
-		showInLegend: true,
-		legendText: legendPb + " " + "magnitude (T = " + "" +samplePb +")",
+		//showInLegend: true,
+		//legendText: legendPb + " " + "magnitude (T = " + "" +samplePb +")",
         dataPoints:null
 	
        }
@@ -1052,7 +1062,7 @@ document.getElementById('chartContainer1').style.display  = "block";
         type: "spline",
 		//color:"black",
 		showInLegend: true,
-		legendText: legendPb + " " + "phase (T = " + "" +samplePb +")",
+		legendText: legendPb + " " + "(T = " + "" +samplePb +")",
         dataPoints:null
 	
        }
@@ -1072,35 +1082,36 @@ document.getElementById('chartContainer1').style.display  = "block";
 	 CanvasJS.addColorSet("MagShades",
                 [//colorSet Array for magnitudes
 
-                "#6d0404",
-                "#f93838",
+                "#FC222D",
+                "#FC8422",
+                "#282BF6",
+                "#1E7640",
+                "black",
+				"#8C28F6",
+                /* "#f93838",
                 "#3875f9",
                 "#022676",
-                "#380276",
-				"#2F4F4F",
-                "#008080",
-                "#2E8B57",
-                "#3CB371",
-                "#90EE90"                
+                "#380276", */               
                 ]);
 				CanvasJS.addColorSet("PhaseShades",
                 [//colorSet Array for phases
 
-                "#2F4F4F",
-                "#008080",
-                "#2E8B57",
-                "#3CB371",
-                "#90EE90",
-				"#6d0404",
-                "#f93838",
+                "#FC222D",
+                "#FC8422",
+                "#282BF6",
+                "#1E7640",
+                "black",
+				"#8C28F6",
+                /* "#f93838",
                 "#3875f9",
                 "#022676",
-                "#380276",				
+                "#380276", */			
                 ]);
 
 	 
 	 for (var dnum = 0; dnum<=incrfrb1; dnum++){
-		  
+	
+if(dnum<=3){	
 	 datasetmb[dnum] = Arraymbfr["array"+dnum];
 	 datasetphb[dnum] = Arrayphbfr["array"+dnum];
 	 
@@ -1116,8 +1127,9 @@ document.getElementById('chartContainer1').style.display  = "block";
 	chartb2.addTo("colorSet","PhaseShades");
 	chartb2.addTo("axisY", {gridThickness: 0, tickLength:0, lineThickness:0});
 	
-	chartb1.addTo("data", {type: "spline", showInLegend:true, legendText: legendPb + " " + "magnitude (T = " + "" +samplePb +")"});
-	chartb2.addTo("data", {type: "spline", showInLegend:true, legendText: legendPb + " " + "phase (T = " + "" +samplePb +")"});
+	chartb1.addTo("data", {type: "spline"});//, showInLegend:true, legendText: legendPb + " " + "magnitude (T = " + "" +samplePb +")"
+	chartb2.addTo("data", {type: "spline", showInLegend:true, legendText: legendPb + " " + "(T = " + "" +samplePb +")"});
+	
 	
 	}
 	
@@ -1130,11 +1142,18 @@ document.getElementById('chartContainer1').style.display  = "block";
 	
 	
 	document.getElementById("exportChart").style.display = "block";
-	
+}
+
+if(dnum>3){
+		 alert('Maximum four simulations can be performed.');
 	 }
+	 }
+	 
+	 
+	 
 	incrfrb1++; 
 	incrfrb2++;
-	 
+	
  }
 
 

@@ -35,6 +35,8 @@
 
 <li> Place the cursor on the plot to read the exact values at any point for detailed analysis. </li><br/>
 
+<li> <b>Note:</b> A maximum of four frequency response experiments can be conducted and plotted for comparison. </li><br/>
+
 </ol>
 
 
