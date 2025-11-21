@@ -1,13 +1,316 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-		<!-- Your code goes here-->
+<!-- This HTML page and script files are developed by
+   Kamal Sandeep Karreddula
+    Research Scholar,
+    Electrical Engineering Department,
+    IIT Kharagpur.
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
-</body>
-</html>
+   Piyali Chattopadhyay
+    Project Scientist-Technical,
+    Virtual Labs IIT Kharagpur.-->
+
+<!DOCTYPE html>
+<html lang="en"><!--html tag start-->
+<head>
+    <title>Determine Frequency Response of Zero Order Hold and First Order Hold using Actual Transfer Functions and Pade Approximations</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/adik.css" rel="stylesheet">
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"></script>
+ 
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!--<script  src="./js/TC.js">   </script>-->
+  <script  src="./js/ZOH_FOH_updated.js"> </script>
+  <!-- <script src="./js/canvas2image.js"></script> -->
+  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>-->
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.2.1/math.js"></script>
+  <script src=" https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.2.1/math.min.js  "></script>
+ 
+ 
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+
+<link rel="stylesheet" href="./css/TC.css">
+
+	
+
+
+  <style>
+	.bluedot{
+	position:absolute;
+    border: 2px solid blue;
+    border-radius:50%;
+    background-color:blue;
+    background-image:linear-gradient(90deg,#0066ff,#00ccff);
+	box-shadow: 5px 5px 8px #888888;
+	}
+	.handlep{
+	position:absolute;
+    border: 2px solid blue;
+    border-radius:50%;
+    background-color:white;
+    background-image:url(./images/plus.png);
+	background-size:cover;
+	background-position:center;
+	
+	}
+	
+	.handlen{
+	position:absolute;
+    border: 2px solid blue;
+    border-radius:50%;
+    background-color:white;
+    background-image:url(./images/minus.jpg);
+	background-size:cover;
+	background-position:center;
+	
+	}
+	
+	canvas {	
+	max-width:100%;
+	}
+	
+	@media print {
+  body {
+    visibility: hidden;
+  }
+  #plotbucket {
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+	
+	
+	
+  </style>
+  
+  
+  
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DR65GC9DFB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DR65GC9DFB');
+</script>
+
+<body><!--body tag start-->
+    <div class="container p-3 my-3 text-primary text-center border"><!--First Container under body tag start-->
+        <div class="row"><!--First row under 1st container start-->
+            <div class="col-md-3"><!--First col under 1st row start-->
+                <img class="img-fluid rounded" src="./images/vlabs.png" alt="VLabs logo">
+            </div><!--First col under 1st row end-->
+            <div class="col-md-6"><!--2nd col under 1st row start-->
+                <p class="display-1"> <b> Virtual Labs <br> IIT Kharagpur </b> </p>
+            </div><!--2nd col under 1st row end-->
+            <div class="col-md-3"><!--3rd col under 1st row start-->
+                <img class="img-fluid rounded" src="./images/iitkgp.png" alt="IIT KGP Logo" >
+            </div><!--3rd col under 1st row end-->
+        </div><!--First row under 1st container end-->
+    
+        <hr>
+        <div class="row"><!--2nd row under 1st container start-->
+            <div class="col-md-3"><!--First col under 2nd row start-->
+
+            </div><!--First col under 2nd row end-->
+            <div class="col-md-6"><!--2nd col under 2nd row start-->
+                <p class="h1"> <b>Simulation</b> </p>
+            </div><!--2nd col under 2nd row end-->
+            <div class="col-md-3"><!--3rd col under 2nd row start-->
+
+            </div><!--3rd col under 2nd row end-->
+        </div><!--2nd row under 1st container end-->
+        <hr>
+        
+    </div><!--First Container under body tag end-->
+    
+  
+	
+    <div class="container p-3 my-5 text-left border"><!--3rd Container under body tag start-->
+      <div class="row"><!--First row under 3rd container start-->
+        <div class="col-md-1"></div><!--First col under 3rd container start& end-->
+        <div class="col-md-10"><!--2nd col under 3rd container start-->
+            <p class="text-center bg-success"> <a class="nav-link" data-bs-toggle="tab"  id="instcontrol" style="background-color:#128BD9"  ><span class=" h3 text-dark"> Instructions </span></a>
+              <ol id="inst" style="display:block;height:200px;overflow-y:auto;text-align:justify">
+                      <li>At first enter the desired values of minimum frequency, maximum frequency and sampling time. Here default values are 1 for minimum frequency,
+					      100 for maximum frequency and 0.1 for sampling frequency.</li></br>
+  
+					  <li>Click on 'Select method for linear scale' or 'Select method for semilog scale' dropdown-menu and select the desired option.</li><br/>
+					  
+					  <li>Click on 'Plot' button for simulation. </li><br/>
+					  					  				  
+					  <li>Click on the 'Download Plot' button to download the simulation results.</li><br/>		 
+					 
+					  <li>Click on 'Clear' button before the every simulation to clear the previous plot.</li><br/> 
+					  
+					  <li>To compare plots, select the desired options from the dropdown-menu without using the 'Clear' button.</li><br/>
+					  
+					  <li> Place the cursor on the plot to read the exact values at any point for detailed analysis. </li><br/>
+					  
+					  <li> <b>Note:</b> A maximum of four frequency response experiments can be conducted and plotted for comparison. </li><br/>
+
+					
+						 
+		   </ol>
+            </p> 
+          </div><!--2nd col under 3rd container end-->
+		  
+        <div class="col-md-1"></div><!--3rd col under 3rd container start& end-->
+      </div><!--First row under 3rd container end-->
+    </div><!--3rd Container under body tag end-->
+	
+    <div class="container p-3 my-5 text-center border" id="canvas" ><!--Fourth container under body tag start-->
+	
+	<div class="row ">
+	
+	<div class="col-md-12">
+	
+	
+			<div>			
+			
+			<span style="position:absolute;left:25%">Enter the desired minimum frequency of the plot:</span>&nbsp;<input type="number" id="minf" min="1" value="1" max="10" step="1" style="position:absolute;width:6%;text-align:center" ><br/></br>
+			<span style="position:absolute;left:25%">Enter the desired maximum frequency of the plot:</span> &nbsp;<input type="number" id="maxf" min="10" value="100" max="1000" step="10" style="position:absolute;width:6%;text-align:center"><br/><br/>			
+			<!--Enter the desired sampling time :    <input type="number" id="Ts" min="0.01" value="0.1" max="10" step="0.01" style="position:absolute;width:20%"readonly=readonly><br/></br>-->
+			<span style="position:absolute;left:30%">Enter the desired sampling time (T sec):</span>    &nbsp;<input type="number" onchange="inputChange()" id="Ts" min="0.01" value="0.1" max="0.5" step="0.01" style="position:absolute;width:6%;text-align:center"><br/></br>				
+			</div>
+			<br/>
+			
+				<!--//<button class="btn btn-success" id ="run" onclick="ZOH_mag();ZOH_ph()">ZOH</button>-->
+				<!--<button class="btn btn-success" id ="run" onclick="ZOH_fr()">ZOH Freq. Resp.</button>-->
+				<!--<button class="btn btn-success" id ="run" onclick="ZOH_bode()">ZOH bode</button>-->
+				<!--<button class="btn btn-success" id ="run" onclick="ZOH_pade1_fr()">ZOH pade1 Freq.Resp.</button>-->
+				<!--<button class="btn btn-success" id ="run" onclick="ZOH_pade1_bode()">ZOH pade1 bode</button>-->
+				<!--<button class="btn btn-success" id ="run" onclick="ZOH_pade2_fr()">ZOH pade2 Freq.Resp.</button>-->
+				<!--<button class="btn btn-success" id ="run" onclick="ZOH_pade2_bode()">ZOH pade2 bode</button>-->
+				<!--<button class="btn btn-danger" id ="clr" onclick="refresh()" >Clear</button>-->
+				
+	 <div class="d-inline-flex p-3 gy-2">			
+		<div class="dropdown">
+  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownfreq" data-bs-toggle="dropdown" aria-expanded="false">
+    Select method for linear scale
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownfreq">
+    <li><a class="dropdown-item"  onclick="zohfrs()">ZOH Freq. Resp.</a></li>
+	<li><a class="dropdown-item"  onclick="fohfrs()">FOH Freq. Resp.</a></li>
+	<li><a class="dropdown-item"  onclick="zohfrps()">ZOH PADE 1 Freq. Resp.</a></li>
+	<li><a class="dropdown-item"  onclick="fohfrps()">FOH PADE 1 Freq. Resp.</a></li>
+	
+  </ul>
+  
+</div>&nbsp;&nbsp;		
+		
+		<div class="dropdown">
+  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownbode" data-bs-toggle="dropdown" aria-expanded="false">
+    Select method for semilog scale
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownbode">
+     <li><a class="dropdown-item"  onclick="zohbs()">ZOH Bode</a></li>
+    <li><a class="dropdown-item"  onclick="fohbs()">FOH Bode</a></li>
+    <li><a class="dropdown-item"  onclick="zohbps()">ZOH PADE 1 Bode</a></li>
+	<li><a class="dropdown-item"  onclick="fohbps()">FOH PADE 1 Bode</a></li>
+	
+  </ul>
+  
+</div>&nbsp;&nbsp;
+
+<button class="btn btn-success" id ="plotfreq" onclick="GenPlot()" style="display:none">Plot</button>
+<button class="btn btn-success" id ="plotbode" onclick="GenPlotBode()" style="display:none">Plot</button>
+
+		<button class="btn btn-danger" id ="clr" onclick="refresh()" >Clear</button>
+		<input id="methodchkfreq" value="0" style="visibility:hidden">
+		<input id="methodchkbode" value="0" style="visibility:hidden">
+	</div>
+	</div>
+	
+	</div>
+	
+			
+	<div class="row my-5 gy-2">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+	
+			
+			
+				<!--//<button class="btn btn-success" id ="run" onclick="ZOH_mag();ZOH_ph()">ZOH</button>-->
+				<!--<button class="btn btn-success" id ="run" onclick="FOH_fr()">FOH Freq. Resp.</button>-->
+				<!--<button class="btn btn-success" id ="run" onclick="FOH_bode()">FOH bode</button>-->
+				<!--<button class="btn btn-success" id ="run" onclick="FOH_pade1_fr()">FOH pade1 Freq.Resp.</button>-->
+				<!--<button class="btn btn-success" id ="run" onclick="FOH_pade1_bode()">FOH pade1 bode</button>-->
+				<!--<button class="btn btn-success" id ="run" onclick="FOH_pade2_fr()">FOH pade2 Freq.Resp.</button>-->
+				<!--<button class="btn btn-success" id ="run" onclick="FOH_pade2_bode()">FOH pade2 bode</button>-->
+				<!--<button class="btn btn-danger" id ="clr" onclick="refresh()" >Clear</button>-->
+	
+	</div>
+	<div class="col-md-1"></div>
+	</div>
+		
+		
+		
+	 <div class="row justify-content-center"><!-----------------------graph T vs. w----------------------------------------->
+		
+	 
+			<div class="col-md-12">
+				<!--<img id = "0.3fr" src="./images/plant.png" class="img-fluid" style="display:none">-->
+				<div id = "plotbucket" class="content-center " style="display:none; position:relative; border:3px solid white;height:700px;width:900px ">
+				
+				<!--<button type="button" id="exportChart2" class="btn btn-primary"  style="display:none;position:absolute;top:210%;left:28%;">Download Plot</button>-->
+				
+					<div id="chartContainer1"  style="display:none; position:absolute; height:45%; width:100%;z-index:1 "></div>
+					<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+					<div id="chartContainer2"  style="display:none; position:absolute; height:45%; width:100%;z-index:1 "></div><br/>
+				
+				</div>
+				<br/><br/><button type="button" id="exportChart" class="btn btn-primary" style="display:none" onclick="saveImg()">Download Plot</button>
+			</div>
+			
+			
+		
+	</div>	
+
+	
+	
+          <!-- Code End here-->
+        </div><!--Fourth container under body tag end-->
+          
+      <!--</div>
+    </div>-->
+
+    <div class="container p-3 my-5 text-primary text-center border"><!--Last and fifth container under body tag start-->
+      <div class="row">
+        <footer>
+          <div class="row ce">
+            <div class="col-sm-12">
+              <p class="h5"><i> Copyright ©2022 <a href="http://vlabs.iitkgp.ac.in/vlt/">Virtual Labs IIT Kharagpur</a> </i><br><br>
+              <a href="../../license/index.html" target="_blank"> Licensing Terms </a>
+            </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+  </div><!--Last and fifth container under body tag end-->
+  
+   
+	
+	
+</body><!--body tag end-->
+</html><!--html tag end-->

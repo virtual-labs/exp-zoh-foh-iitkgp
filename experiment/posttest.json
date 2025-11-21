@@ -2,37 +2,58 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "Q1. What is the transfer function of Zero Order Hold?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": " <img src=./images/Q1a.png> ",
+        "b": " <img src=./images/Q1b.png> ",
+        "c": " <img src=./images/Q1c.png> ",
+        "d": " <img src=./images/Q1d.png> "
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "a",
+      "correctAnswer": "d",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Q2. What is the transfer function of First Order Hold?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": " <img src=./images/Q2a.png>  ",
+        "b": " <img src=./images/Q2b.png> ",
+        "c": " <img src=./images/Q2c.png> ",
+        "d": " <img src=./images/Q2d.png> "
       },
       "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Q3. What is the first-order Pade approximation of the time delay <img src=./images/Q3a.png>, where <img src=./images/T.png> is the time delay and <img src=./images/s.png> is the complex frequency variable? ",
+      "answers": {
+        "a": " <img src=./images/Q3a.png> ",
+        "b": " <img src=./images/Q3b.png> ",
+        "c": " <img src=./images/Q3c.png> ",
+        "d": " <img src=./images/Q3d.png> "
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Q4. Calculate the first-order Padé approximation of the time delay <img src=./images/Q3a.png>, given <img src=./images/T.png> seconds and <img src=./images/s_5.png> rad/s. ",
+      "answers": {
+        "a": " 0.333 ",
+        "b": " 0.25 ",
+        "c": " 0.6 ",
+        "d": " 0.666 "
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Q5. ____ is the conversion of a sequence to a continuous time function. ",
+      "answers": {
+        "a": " Holding operation ",
+        "b": " Sampling operation",
+        "c": " Quantization operation ",
+        "d": " Aliasing operation "
+      },
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]
