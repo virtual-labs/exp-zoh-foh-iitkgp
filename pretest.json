@@ -1,0 +1,62 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "Q1. Difference equation in ______ systems is similar to the _______ equation in continuous systems",
+      "answers": {
+        "a": "Discrete, Difference",
+        "b": "Discrete, Differential",
+        "c": "Continuous, Differential",
+        "d": "Continuous, Difference"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Q2. ______ conversion process involves deriving samples of the analog signal at discrete instants of time separated by sampling period T sec.",
+      "answers": {
+        "a": "Analog to Analog",
+        "b": "Digital to Analog",
+        "c": "Analog to Digital",
+        "d": "Digital to Digital"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Q3. ______ conversion process involves reconstructing continuous time signal from the samples given by the digital computer.",
+      "answers": {
+        "a": "Analog to Analog",
+        "b": "Digital to Analog",
+        "c": "Analog to Digital",
+        "d": "Digital to Digital"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Q4. Sampling theorem states that the sampling frequency must be at least______ the _______ frequency present in the signal. ",
+      "answers": {
+        "a": "Half, Lowest",
+        "b": "Twice, Lowest",
+        "c": "Half, Highest",
+        "d": "Twice, Highest"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    		
+	{
+      "question": "Q5. The transfer function of a linear time-invariant discrete-time system is the ratio of the ______, assuming that the system is initially relaxed.",
+      "answers": {
+        "a": "Z- transforms of its output and input sequences",
+        "b": "Laplace transforms of its output and input sequences",
+        "c": "Z- transforms of its input and output sequences",
+        "d": " Laplace transforms of its input and output sequences"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    }
+	
+  ]
+}
