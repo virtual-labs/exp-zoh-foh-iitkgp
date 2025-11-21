@@ -444,7 +444,7 @@ document.getElementById('chartContainer1').style.display  = "block";
       },
     axisY: [
 	      {/////output Y axis
-            title: "Phase",
+            title: "Phase in degrees",
 			
 			//maximum:0.03,
         }
@@ -548,7 +548,7 @@ if(dnum<=3){
 }
 
 if(dnum>3){
-	alert('Maximum four simulations can be performed.');
+	alert('Maximum four simulations can be performed. For more, click Clear and then Run.');
 }
 
 
@@ -1050,7 +1050,7 @@ document.getElementById('chartContainer1').style.display  = "block";
       },
     axisY: [
 	      {/////output Y axis
-            title: "Phase",
+            title: "Phase in degrees",
 			
 			//maximum:0.03,
         }
@@ -1145,7 +1145,7 @@ if(dnum<=3){
 }
 
 if(dnum>3){
-		 alert('Maximum four simulations can be performed.');
+		 alert('Maximum four simulations can be performed. For more, click Clear and then Run.');
 	 }
 	 }
 	 
